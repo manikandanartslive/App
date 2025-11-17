@@ -1,109 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Manikandan Arts – Drawing Class Online</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manikandan Arts — Drawing Class</title>
 <style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #6ecbff, #0077c2, #000);
-    color: white;
-    overflow-x: hidden;
-    animation: fadeIn 1s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  header, section {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-    animation: slideUp 0.8s ease;
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-
-  nav button {
-    margin: 5px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.18);
-    color: white;
-    transition: 0.3s;
-  }
-  nav button:hover {
-    background: rgba(255,255,255,0.35);
-    transform: translateY(-2px);
-  }
-
-  .card {
-    background: rgba(255,255,255,0.12);
-    padding: 15px;
-    border-radius: 14px;
-    margin: 10px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
-  }
-  .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
-    margin: 5px 0;
-    font-size: 15px;
-    transition: 0.3s;
-  }
-  input:focus, textarea:focus {
-    outline: none;
-    box-shadow: 0 0 8px #6ecbff;
-  }
-
-  .btn {
-    padding: 12px 18px;
-    background: linear-gradient(90deg, #28d760, #1db954);
-    border: none;
-    color: white;
-    margin-top: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 600;
-  }
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  }
-
-  #upiQR, #screenPrev {
-    transition: 0.3s;
-  }
-  #upiQR:hover, #screenPrev:hover {
-    transform: scale(1.05);
-  }
-
-  .hidden { display: none; }
-
+  :root{--card-bg:rgba(255,255,255,0.08);--muted:rgba(255,255,255,0.75)}
+  body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(135deg,#6ecbff,#0077c2,#000);color:#fff}
+  header,section{max-width:980px;margin:auto;padding:18px}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav button{padding:8px 12px;border-radius:8px;border:none;background:rgba(255,255,255,0.12);color:#fff;cursor:pointer}
+  .card{background:var(--card-bg);padding:14px;border-radius:12px;margin:10px 0;backdrop-filter:blur(6px)}
+  input,select,textarea{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:none}
+  .btn{padding:10px 14px;border-radius:8px;border:none;background:linear-gradient(90deg,#28d760,#1db954);color:#fff;cursor:pointer}
+  .btn-danger{background:#ff6b6b}
+  .muted{color:var(--muted)}
+  .small{font-size:13px}
+  .hidden{display:none}
+  a.link{color:#dbeafe}
+  code{background:rgba(0,0,0,0.25);padding:2px 6px;border-radius:6px}
+  @media(max-width:640px){header,section{padding:12px}}
 </style>
 </head>
 <body>
 <header>
-  <h1>Manikandan Arts – Drawing Class Online</h1>
+  <h1>Manikandan Arts — Drawing Class</h1>
   <nav>
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('plans')">Plans</button>
@@ -111,199 +32,212 @@
     <button onclick="showPage('register')">Register</button>
     <button onclick="showPage('payment')">Payment</button>
     <button onclick="showPage('admin')">Admin</button>
+    <button onclick="showPage('testPage')">Assignments</button>
   </nav>
 </header>
 
 <!-- HOME -->
 <section id="home" class="card">
-  <h2>Welcome to Manikandan Arts</h2>
-  <p>Fun drawing classes for kids – simple lessons, colourful art!</p>
-
-  <h3>Pricing</h3>
-  <div class="card">LKG – UKG <b>₹100</b></div>
-  <div class="card">1st – 2nd <b>₹150</b></div>
-  <div class="card">3rd – 4th <b>₹200</b></div>
-  <div class="card">5th <b>₹250</b></div>
+  <h2>Welcome</h2>
+  <p class="muted">Online drawing classes for kids — creative lessons and recorded videos.</p>
+  <h3>Pricing (Monthly)</h3>
+  <div class="card">LKG - UKG: <b>₹100</b></div>
+  <div class="card">1st - 2nd: <b>₹150</b></div>
+  <div class="card">3rd - 4th: <b>₹200</b></div>
+  <div class="card">5th: <b>₹250</b></div>
 </section>
 
 <!-- PLANS -->
 <section id="plans" class="card hidden">
   <h2>Plans</h2>
-  <p>2 Classes / Week – 45 mins each – Recorded links provided</p>
+  <p class="muted">2 classes/week • 30 minutes each • Recorded lessons provided</p>
 </section>
 
 <!-- REGISTER -->
 <section id="register" class="card hidden">
-  <h2>Student Registration</h2>
-  <div id="regError" style="color:red"></div>
-  <input id="regName" placeholder="Student Name">
-  <input id="regGrade" placeholder="Grade (LKG, 1, 2, etc)">
-  <input id="regPhone" placeholder="Parent Phone">
-  <input id="regUser" placeholder="Username">
-  <input id="regPass" type="password" placeholder="Password">
+  <h2>Register Student</h2>
+  <div id="regError" style="color:#ffb4b4"></div>
+  <input id="regName" placeholder="Student name">
+  <select id="regGrade"><option value="">Select class</option><option>LKG</option><option>UKG</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+  <input id="regPhone" placeholder="Parent phone">
+  <input id="regUser" placeholder="Choose username">
+  <input id="regPass" type="password" placeholder="Choose password">
   <button class="btn" onclick="registerStudent()">Register</button>
 </section>
 
 <!-- LOGIN -->
 <section id="login" class="card hidden">
   <h2>Student Login</h2>
-  <div id="loginError" style="color:red"></div>
+  <div id="loginError" style="color:#ffb4b4"></div>
   <input id="loginUser" placeholder="Username">
   <input id="loginPass" type="password" placeholder="Password">
-  <button class="btn" onclick="loginStudent()">Login</button>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button class="btn" onclick="loginStudent()">Login</button>
+    <a href="#" onclick="forgotPasswordFlow()" class="small" style="margin-left:8px;color:#ffd">Forgot password?</a>
+  </div>
 </section>
 
 <!-- DASHBOARD -->
 <section id="dashboard" class="card hidden">
-  <h2 id="dashName"></h2>
-  <h3>Google Drive Lessons</h3>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+    <div>
+      <h2 id="dashName"></h2>
+      <div id="paymentInfo" class="small muted"></div>
+    </div>
+    <div>
+      <button class="btn" onclick="openTestPage()">My Assignments</button>
+      <button class="btn" onclick="showPage('payment')">Make Payment</button>
+      <button class="btn btn-danger" onclick="logoutStudent()">Logout</button>
+    </div>
+  </div>
+  <h3>Recorded Lessons for your class</h3>
   <div id="videoList"></div>
-  <button class="btn" onclick="showPage('payment')">Go to Payment</button>
-  <button class="btn" style="background:red" onclick="logoutStudent()">Logout</button>
+  <h3>Grades</h3>
+  <div id="gradesBox"></div>
 </section>
 
 <!-- PAYMENT -->
 <section id="payment" class="card hidden">
   <h2>Payment</h2>
-  <p>Scan UPI QR and upload screenshot, then send to WhatsApp.</p>
-  <img id="upiQR" src="" alt="UPI QR" style="max-width:200px; background:white; border-radius:8px;" />
-  <input type="file" accept="image/*" onchange="previewScreenshot(event)">
-  <img id="screenPrev" style="max-width:200px; margin-top:10px; display:none;">
-  <button class="btn" onclick="sendWhatsApp()">Send to WhatsApp</button>
+  <p class="muted">Scan UPI QR, pay, upload screenshot, then send WhatsApp. Admin will verify and activate your account.</p>
+  <img id="upiQR" src="" alt="UPI QR" style="max-width:240px;background:#fff;border-radius:8px;display:block">
+  <input id="payScreenshot" type="file" accept="image/*" onchange="previewScreenshot(event)">
+  <img id="screenPrev" style="max-width:240px;margin-top:10px;display:none">
+  <div style="margin-top:10px"><button class="btn" onclick="sendWhatsApp()">Send to WhatsApp</button></div>
 </section>
 
 <!-- ADMIN -->
 <section id="admin" class="card hidden">
-  <h2>Admin Panel</h2>
+  <h2>Admin</h2>
   <div id="adminLoginBox">
-    <input id="admUser" placeholder="Admin Username">
-    <input id="admPass" type="password" placeholder="Admin Password">
+    <input id="admUser" placeholder="Admin username">
+    <input id="admPass" type="password" placeholder="Admin password">
     <button class="btn" onclick="adminLogin()">Login</button>
   </div>
 
   <div id="adminPanel" class="hidden">
-    <h3>Upload UPI QR</h3>
-    <input type="file" accept="image/*" onchange="uploadUPI(event)">
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div style="flex:1;min-width:220px"><h3>Upload UPI QR</h3><input type="file" accept="image/*" onchange="uploadUPI(event)"></div>
+      <div style="flex:1;min-width:220px"><h3>Add Class Video</h3><button class="btn" onclick="addVideo()">Add Video</button></div>
+      <div style="flex:1;min-width:220px"><h3>Admin Settings</h3><button class="btn" onclick="changeAdminPassword()">Change Admin Password</button><div style="margin-top:6px"><button class="btn" onclick="setBillingDays()">Set Billing Days</button></div></div>
+    </div>
 
-    <h3>Add Google Drive Lesson Link</h3>
-    <button class="btn" onclick="addVideo()">Add Video</button>
+    <h3 style="margin-top:12px">Students</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+      <button class="btn" onclick="renderStudentList()">All</button>
+      <button class="btn" onclick="filterByClass('LKG')">LKG</button>
+      <button class="btn" onclick="filterByClass('UKG')">UKG</button>
+      <button class="btn" onclick="filterByClass('1')">1</button>
+      <button class="btn" onclick="filterByClass('2')">2</button>
+      <button class="btn" onclick="filterByClass('3')">3</button>
+      <button class="btn" onclick="filterByClass('4')">4</button>
+      <button class="btn" onclick="filterByClass('5')">5</button>
+    </div>
 
-    <h3>Set WhatsApp Number</h3>
-    <button class="btn" onclick="setWhatsApp()">Set Number</button>
+    <div id="adminStudentBox"></div>
+    <div id="adminClassFilterBox"></div>
 
-    <button class="btn" style="background:red" onclick="adminLogout()">Logout</button>
+    <h3 style="margin-top:12px">Assignments — Filter by Class</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+      <button class='btn' onclick="renderAssignmentsByClass('ALL')">All</button>
+      <button class='btn' onclick="renderAssignmentsByClass('LKG')">LKG</button>
+      <button class='btn' onclick="renderAssignmentsByClass('UKG')">UKG</button>
+      <button class='btn' onclick="renderAssignmentsByClass('1')">1</button>
+      <button class='btn' onclick="renderAssignmentsByClass('2')">2</button>
+      <button class='btn' onclick="renderAssignmentsByClass('3')">3</button>
+      <button class='btn' onclick="renderAssignmentsByClass('4')">4</button>
+      <button class='btn' onclick="renderAssignmentsByClass('5')">5</button>
+    </div>
+
+    <div id="adminAssignmentsBox"></div>
+
+    <div style="margin-top:12px"><button class="btn btn-danger" onclick="adminLogout()">Logout</button></div>
   </div>
 </section>
 
+<!-- TEST PAGE -->
+<section id="testPage" class="card hidden">
+  <h2>Assignments / Upload</h2>
+  <div id="testNotice" class="muted">Upload your drawing or test image here.</div>
+  <div id="assignmentUploadBox" style="margin-top:10px"><input id="assignmentFile" type="file" accept="image/*" onchange="uploadAssignment(event)"></div>
+  <h3 style="margin-top:10px">Your Uploads</h3>
+  <div id="assignmentList"></div>
+</section>
+
 <script>
-// PAGE SWITCHER
-function showPage(id){
-  document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
-}
+/* ----------------- Defaults & Init ----------------- */
+const DEFAULT_BILLING_DAYS = 30;
+(function initDefaults(){
+  if(!localStorage.getItem('adminCreds')) localStorage.setItem('adminCreds', JSON.stringify({username:'admin',password:'password123'}));
+  if(!localStorage.getItem('billingDays')) localStorage.setItem('billingDays', String(DEFAULT_BILLING_DAYS));
+  if(!localStorage.getItem('classVideos')) localStorage.setItem('classVideos', JSON.stringify({}));
+  if(!localStorage.getItem('assignments')) localStorage.setItem('assignments', JSON.stringify({}));
+  if(!localStorage.getItem('students')) localStorage.setItem('students', JSON.stringify([]));
+})();
 
-// REGISTER
-function registerStudent(){
-  let n = regName.value,
-      g = regGrade.value,
-      p = regPhone.value,
-      u = regUser.value,
-      ps = regPass.value;
+/* ----------------- Helpers ----------------- */
+function getStudents(){ return JSON.parse(localStorage.getItem('students')||'[]'); }
+function saveStudents(arr){ localStorage.setItem('students', JSON.stringify(arr)); }
+function findStudentByUsername(u){ if(!u) return null; return getStudents().find(s=>String(s.username)===String(u)); }
+function calcExpiryInfo(activationISO){ const billingDays = parseInt(localStorage.getItem('billingDays')||DEFAULT_BILLING_DAYS,10); if(!activationISO) return {remaining:-1,expiresAt:null}; const act=new Date(activationISO); const expire=new Date(act.getTime()+billingDays*24*60*60*1000); const now=new Date(); const diff=Math.ceil((expire-now)/(1000*60*60*24)); return {remaining:diff,expiresAt:expire}; }
 
-  if(!n || !g || !p || !u || !ps){ regError.innerText = "Fill all fields"; return; }
+// Run expiry enforcement at start
+(function enforceExpiryOnInit(){ const billingDays = parseInt(localStorage.getItem('billingDays')||DEFAULT_BILLING_DAYS,10); let students=getStudents(); let changed=false; students.forEach(s=>{ if(s.activated && s.activationDate){ const act=new Date(s.activationDate); const expire=new Date(act.getTime()+billingDays*24*60*60*1000); if(new Date()>expire){ s.activated=false; changed=true; } } }); if(changed) saveStudents(students); })();
 
-  let students = JSON.parse(localStorage.getItem('students') || '[]');
-  if(students.find(s=>s.username===u)){ regError.innerText = "Username already taken"; return; }
+/* ----------------- Navigation ----------------- */
+function showPage(id){ document.querySelectorAll('section').forEach(s=>s.classList.add('hidden')); const el=document.getElementById(id); if(el) el.classList.remove('hidden'); }
 
-  students.push({name:n, grade:g, phone:p, username:u, pass:ps});
-  localStorage.setItem('students', JSON.stringify(students));
+/* ----------------- Registration ----------------- */
+function registerStudent(){ const name=document.getElementById('regName').value.trim(); const grade=document.getElementById('regGrade').value; const phone=document.getElementById('regPhone').value.trim(); const username=document.getElementById('regUser').value.trim(); const pass=document.getElementById('regPass').value; const err=document.getElementById('regError'); err.textContent=''; if(!name||!grade||!phone||!username||!pass){ err.textContent='Please fill all fields'; return; } let students=getStudents(); if(students.find(s=>s.username===username)){ err.textContent='Username already taken'; return; } const id=Date.now(); students.push({id,name,grade,phone,username,pass,activated:false,activationDate:null,lastPaymentDate:null}); saveStudents(students); alert('Registered. Please make payment for activation.'); showPage('login'); }
 
-  alert("Registration successful!");
-  showPage('login');
-}
-
-// LOGIN
-let currentStudent = null;
-function loginStudent(){
-  let u = loginUser.value,
-      p = loginPass.value;
-  let students = JSON.parse(localStorage.getItem('students') || '[]');
-  let found = students.find(s=>s.username===u && s.pass===p);
-  if(!found){ loginError.innerText = "Invalid credentials"; return; }
-
-  currentStudent = found;
-  dashName.innerText = "Welcome " + found.name;
-
-  loadVideos();
-  showPage('dashboard');
-}
+/* ----------------- Login ----------------- */
+let currentStudent=null;
+function loginStudent(){ const u=document.getElementById('loginUser').value.trim(); const p=document.getElementById('loginPass').value; const err=document.getElementById('loginError'); err.textContent=''; const students=getStudents(); const found=students.find(s=>String(s.username)===String(u) && String(s.pass)===String(p)); if(!found){ err.textContent='Incorrect username or password'; return; } // ensure activationDate exists if activated
+  if(found.activated && !found.activationDate){ found.activationDate=new Date().toISOString(); found.lastPaymentDate=found.activationDate; saveStudents(students); }
+  // check expiry
+  if(found.activationDate){ const info=calcExpiryInfo(found.activationDate); if(info.remaining<=0){ found.activated=false; saveStudents(students); err.textContent='Your subscription has expired. Please renew.'; return; } }
+  if(!found.activated){ err.textContent='Your account is not activated yet. Please pay and wait for admin approval.'; return; }
+  currentStudent=found; document.getElementById('dashName').innerText=`Welcome ${found.name} (${found.grade})`; renderPaymentInfo(); loadVideosForCurrentStudent(); loadAssignments(); loadGradesForStudent(); showPage('dashboard'); }
 function logoutStudent(){ currentStudent=null; showPage('home'); }
 
-// ADMIN
-function adminLogin(){
-  if(admUser.value==='admin' && admPass.value==='password123'){
-    document.getElementById('adminLoginBox').classList.add('hidden');
-    document.getElementById('adminPanel').classList.remove('hidden');
-  } else alert('Wrong admin login');
-}
-function adminLogout(){
-  document.getElementById('adminLoginBox').classList.remove('hidden');
-  document.getElementById('adminPanel').classList.add('hidden');
-}
+/* ----------------- Forgot password (OTP) ----------------- */
+function forgotPasswordFlow(){ const username=prompt('Enter username for password reset'); if(!username) return; const student=findStudentByUsername(username); if(!student){ alert('Username not found'); return; } const otp=Math.floor(1000+Math.random()*9000).toString(); const expires=Date.now()+5*60*1000; localStorage.setItem(`otp_${username}`, JSON.stringify({otp,expires})); alert(`(Demo) OTP for ${username}: ${otp} — valid 5 minutes.`); const entered=prompt('Enter the OTP'); if(!entered) return; const rec=JSON.parse(localStorage.getItem(`otp_${username}`)||'null'); if(!rec||Date.now()>rec.expires){ alert('OTP expired'); return; } if(String(entered).trim()!==String(rec.otp)){ alert('Incorrect OTP'); return; } const newPass=prompt('Enter new password'); if(!newPass) return; let students=getStudents(); const idx=students.findIndex(s=>s.username===username); if(idx!==-1){ students[idx].pass=newPass; saveStudents(students); localStorage.removeItem(`otp_${username}`); alert('Password reset successful'); } }
 
-// ADMIN – UPI QR
-function uploadUPI(e){
-  let f = e.target.files[0];
-  let r = new FileReader();
-  r.onload = ()=>{
-    localStorage.setItem('upiQR', r.result);
-    document.getElementById('upiQR').src = r.result;
-  };
-  r.readAsDataURL(f);
-}
+/* ----------------- Payment helpers ----------------- */
+function previewScreenshot(e){ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ const img=document.getElementById('screenPrev'); img.src=r.result; img.style.display='block'; localStorage.setItem('lastPaymentScreenshot', r.result); }; r.readAsDataURL(f); }
+function sendWhatsApp(){ const num=(localStorage.getItem('whatsapp')||'+919585406124').replace(/[^0-9]/g,''); const msg=encodeURIComponent('Hello, I have made payment. Please activate my child. Username: [ENTER_USERNAME]'); window.open(`https://wa.me/${num}?text=${msg}`,'_blank'); alert('WhatsApp opened. Attach screenshot and send.'); }
+function renderPaymentInfo(){ const el=document.getElementById('paymentInfo'); if(!currentStudent){ el.innerText=''; return; } if(!currentStudent.activationDate){ el.innerText='Not activated. Please pay to access lessons.'; return; } const info=calcExpiryInfo(currentStudent.activationDate); if(info.remaining>0){ el.innerText=`Activated on ${new Date(currentStudent.activationDate).toLocaleDateString()} — ${info.remaining} days remaining`; } else { el.innerText='Subscription expired. Please renew.'; } }
 
-// ADMIN – Videos
-function addVideo(){
-  let link = prompt("Paste Google Drive Link");
-  if(!link) return;
-  let v = JSON.parse(localStorage.getItem('videos')||'[]');
-  v.push(link);
-  localStorage.setItem('videos', JSON.stringify(v));
-  loadVideos();
-}
-function loadVideos(){
-  let v = JSON.parse(localStorage.getItem('videos')||'[]');
-  videoList.innerHTML = v.map((x,i)=>`<div class='card'><a href='${x}' target='_blank'>Lesson ${i+1}</a></div>`).join('');
-}
+/* ----------------- Admin ----------------- */
+function adminLogin(){ const u=document.getElementById('admUser').value.trim(); const p=document.getElementById('admPass').value; const creds=JSON.parse(localStorage.getItem('adminCreds')||'{}'); if(u===creds.username && p===creds.password){ document.getElementById('adminLoginBox').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); renderStudentList(); renderAssignmentsByClass('ALL'); } else alert('Wrong admin login'); }
+function adminLogout(){ document.getElementById('adminLoginBox').classList.remove('hidden'); document.getElementById('adminPanel').classList.add('hidden'); }
+function changeAdminPassword(){ const creds=JSON.parse(localStorage.getItem('adminCreds')||'{}'); const u=prompt('New admin username', creds.username||'admin'); if(!u) return; const p=prompt('New admin password'); if(!p) return; localStorage.setItem('adminCreds', JSON.stringify({username:u,password:p})); alert('Admin credentials updated'); }
+function setBillingDays(){ const current=localStorage.getItem('billingDays')||DEFAULT_BILLING_DAYS; const v=prompt('Set billing days', current); if(!v) return; const n=parseInt(v,10); if(isNaN(n)||n<=0) return alert('Enter a valid number'); localStorage.setItem('billingDays', String(n)); alert('Billing days updated to '+n); }
+function uploadUPI(e){ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ localStorage.setItem('upiQR', r.result); document.getElementById('upiQR').src=r.result; }; r.readAsDataURL(f); }
+function addVideo(){ const cls=prompt('Enter class (LKG/UKG/1/2/3/4/5)'); if(!cls) return; const link=prompt('Paste Google Drive link for '+cls); if(!link) return; const all=JSON.parse(localStorage.getItem('classVideos')||'{}'); if(!all[cls]) all[cls]=[]; all[cls].push(link); localStorage.setItem('classVideos', JSON.stringify(all)); alert('Saved video for '+cls); }
 
-// ADMIN – WhatsApp Number
-function setWhatsApp(){
-  let num = prompt("Enter WhatsApp Number (+91...)", localStorage.getItem('whatsapp')||'+91');
-  if(num) localStorage.setItem('whatsapp', num);
-}
+function renderStudentList(){ const box=document.getElementById('adminStudentBox'); const students=getStudents(); if(students.length===0){ box.innerHTML='<div class="card">No students yet</div>'; return; } box.innerHTML=students.map(s=>{ const info=s.activationDate?calcExpiryInfo(s.activationDate).remaining+' days remaining':'-'; const paid=s.lastPaymentDate?new Date(s.lastPaymentDate).toLocaleString():'Not paid'; return `<div class="card"><b>${s.name}</b> (${s.grade})<br>Username: <code>${s.username}</code><br>Password: <code>${s.pass}</code><br>Status: ${s.activated?'<span style="color:lightgreen">Activated</span>':'<span style="color:#ffb4b4">Pending</span>'}<br>Payment: ${paid}<br>Expiry: ${s.activationDate?info:'-'}<br><div style="margin-top:6px"><button class='btn' onclick='activateStudent(${s.id})'>Activate</button> <button class='btn' onclick='resetStudentPassword(${s.id})'>Reset Password</button> <button class='btn' style="background:#666" onclick='removeStudent(${s.id})'>Remove</button></div></div>`; }).join(''); }
+function filterByClass(cls){ const students=getStudents(); const box=document.getElementById('adminClassFilterBox'); const list=students.filter(s=>String(s.grade)===String(cls)); if(list.length===0){ box.innerHTML='<div class="card">No students in this class.</div>'; return; } box.innerHTML=list.map(s=>`<div class="card"><b>${s.name}</b> (${s.grade})<br>Username: <code>${s.username}</code><br>Status: ${s.activated?'<span style="color:lightgreen">Activated</span>':'<span style="color:#ffb4b4">Pending</span>'}<br><div style="margin-top:6px"><button class='btn' onclick='activateStudent(${s.id})'>Activate</button></div></div>`).join(''); }
+function activateStudent(id){ let students=getStudents(); const idx=students.findIndex(s=>s.id===id); if(idx===-1) return alert('Student not found'); const now=new Date().toISOString(); students[idx].activated=true; students[idx].activationDate=now; students[idx].lastPaymentDate=now; saveStudents(students); alert('Activated'); renderStudentList(); renderAssignmentsByClass('ALL'); }
+function resetStudentPassword(id){ let students=getStudents(); const idx=students.findIndex(s=>s.id===id); if(idx===-1) return alert('Not found'); const p=prompt('Enter new password for '+students[idx].username); if(!p) return; students[idx].pass=p; saveStudents(students); alert('Password updated'); renderStudentList(); }
+function removeStudent(id){ if(!confirm('Remove student?')) return; let students=getStudents(); students=students.filter(s=>s.id!==id); saveStudents(students); renderStudentList(); }
 
-// PAYMENT SCREENSHOT
-function previewScreenshot(e){
-  let f = e.target.files[0];
-  let r = new FileReader();
-  r.onload = ()=>{
-    screenPrev.src = r.result;
-    screenPrev.style.display = 'block';
-  };
-  r.readAsDataURL(f);
-}
+/* ----------------- Videos ----------------- */
+function loadVideosForCurrentStudent(){ const box=document.getElementById('videoList'); box.innerHTML=''; if(!currentStudent){ box.innerHTML='<div class="card">Please login</div>'; return; } const all=JSON.parse(localStorage.getItem('classVideos')||'{}'); const v=all[currentStudent.grade]||[]; if(v.length===0){ box.innerHTML='<div class="card">No videos for your class yet</div>'; return; } box.innerHTML=v.map((link,i)=>`<div class="card"><a class="link" href="${link}" target="_blank">${currentStudent.grade} - Lesson ${i+1}</a></div>`).join(''); }
 
-// WHATSAPP SEND
-function sendWhatsApp(){
-  let num = (localStorage.getItem('whatsapp')||'+911234567890').replace(/[^0-9]/g,'');
-  let msg = encodeURIComponent("Hello, payment completed. Screenshot attached.");
-  window.open(`https://wa.me/${num}?text=${msg}`);
-}
+/* ----------------- Assignments (student) ----------------- */
+function openTestPage(){ showPage('testPage'); loadAssignments(); }
+function uploadAssignment(e){ if(!currentStudent){ alert('Please login'); showPage('login'); return; } const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ const all=JSON.parse(localStorage.getItem('assignments')||'{}'); if(!all[currentStudent.username]) all[currentStudent.username]=[]; all[currentStudent.username].push({file:r.result,date:new Date().toLocaleString(),grade:null,feedback:null}); localStorage.setItem('assignments', JSON.stringify(all)); loadAssignments(); renderAssignmentsByClass('ALL'); }; r.readAsDataURL(f); }
+function loadAssignments(){ const box=document.getElementById('assignmentList'); if(!currentStudent){ box.innerHTML='<div class="card">Login to see uploads</div>'; return; } const all=JSON.parse(localStorage.getItem('assignments')||'{}'); const list=all[currentStudent.username]||[]; if(list.length===0){ box.innerHTML='<div class="card">No uploads yet</div>'; return; } box.innerHTML=list.map((a,idx)=>`<div class="card"><img src="${a.file}" style="max-width:220px;display:block;margin-bottom:8px"><div>Date: ${a.date}</div><div>Grade: ${a.grade===null?'<em>Not graded</em>':a.grade}</div><div>Feedback: ${a.feedback||'-'}</div></div>`).join(''); }
 
-// LOAD UPI QR ON START
-let q = localStorage.getItem('upiQR');
-if(q) document.getElementById('upiQR').src = q;
+/* ----------------- Admin assignments: class-wise ----------------- */
+function renderAssignmentsByClass(cls){ const box=document.getElementById('adminAssignmentsBox'); const all=JSON.parse(localStorage.getItem('assignments')||'{}'); const students=getStudents(); let html=''; for(const user in all){ const st = students.find(s=>s.username===user); if(!st) continue; if(cls!=='ALL' && String(st.grade)!==String(cls)) continue; all[user].forEach((a,i)=>{ html+=`<div class="card"><b>${st.name}</b> (${st.grade}) — ${a.date}<br><img src="${a.file}" style="max-width:200px;display:block;margin:8px 0"><div>Grade: ${a.grade===null?'<em>Not graded</em>':a.grade}</div><div style="margin-top:8px"><button class='btn' onclick="gradeAssignment('${user}','${i}')">Grade</button> <a class='btn' href='${a.file}' download='${user}_assignment_${i}.png'>Download</a></div></div>`; }); } if(html==='') html='<div class="card">No assignments for this class yet</div>'; box.innerHTML=html; }
+function gradeAssignment(username,index){ const mark=prompt('Enter marks for '+username); if(mark===null) return; const all=JSON.parse(localStorage.getItem('assignments')||'{}'); if(!all[username] || !all[username][index]) return alert('Not found'); all[username][index].grade=mark; const fb=prompt('Enter feedback (optional)'); if(fb!==null) all[username][index].feedback=fb; localStorage.setItem('assignments', JSON.stringify(all)); alert('Saved grade'); renderAssignmentsByClass('ALL'); if(currentStudent && currentStudent.username===username) loadAssignments(); }
 
+/* ----------------- Grades view for student ----------------- */
+function loadGradesForStudent(){ const box=document.getElementById('gradesBox'); if(!currentStudent){ box.innerHTML=''; return; } const all=JSON.parse(localStorage.getItem('assignments')||'{}'); const list=all[currentStudent.username]||[]; if(list.length===0){ box.innerHTML='<div class="card">No grades yet</div>'; return; } box.innerHTML=list.map(a=>`<div class="card">Date: ${a.date}<br>Grade: ${a.grade===null?'<em>Not graded</em>':a.grade}<br>Feedback: ${a.feedback||'-'}</div>`).join(''); }
+
+/* ----------------- Init UI ----------------- */
+(function initUI(){ const q=localStorage.getItem('upiQR'); if(q) document.getElementById('upiQR').src=q; renderStudentList(); renderAssignmentsByClass('ALL'); })();
 </script>
 </body>
-</html>
