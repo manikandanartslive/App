@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manikandan Arts – Drawing Class Online</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6ecbff, #0077c2, #000);
+    color: white;
+    overflow-x: hidden;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  header, section {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    animation: slideUp 0.8s ease;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  nav button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.18);
+    color: white;
+    transition: 0.3s;
+  }
+  nav button:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-2px);
+  }
+
+  .card {
+    background: rgba(255,255,255,0.12);
+    padding: 15px;
+    border-radius: 14px;
+    margin: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+  }
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px 0;
+    font-size: 15px;
+    transition: 0.3s;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #6ecbff;
+  }
+
+  .btn {
+    padding: 12px 18px;
+    background: linear-gradient(90deg, #28d760, #1db954);
+    border: none;
+    color: white;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  }
+
+  #upiQR, #screenPrev {
+    transition: 0.3s;
+  }
+  #upiQR:hover, #screenPrev:hover {
+    transform: scale(1.05);
+  }
+
+  .hidden { display: none; }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>Manikandan Arts – Drawing Class Online</h1>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('plans')">Plans</button>
+    <button onclick="showPage('login')">Student Login</button>
+    <button onclick="showPage('register')">Register</button>
+    <button onclick="showPage('payment')">Payment</button>
+    <button onclick="showPage('admin')">Admin</button>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="card">
+  <h2>Welcome to Manikandan Arts</h2>
+  <p>Fun drawing classes for kids – simple lessons, colourful art!</p>
+
+  <h3>Pricing</h3>
+  <div class="card">LKG – UKG <b>₹100</b></div>
+  <div class="card">1st – 2nd <b>₹150</b></div>
+  <div class="card">3rd – 4th <b>₹200</b></div>
+  <div class="card">5th <b>₹250</b></div>
+</section>
+
+<!-- PLANS -->
+<section id="plans" class="card hidden">
+  <h2>Plans</h2>
+  <p>2 Classes / Week – 45 mins each – Recorded links provided</p>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="card hidden">
+  <h2>Student Registration</h2>
+  <div id="regError" style="color:red"></div>
+  <input id="regName" placeholder="Student Name">
+  <input id="regGrade" placeholder="Grade (LKG, 1, 2, etc)">
+  <input id="regPhone" placeholder="Parent Phone">
+  <input id="regUser" placeholder="Username">
+  <input id="regPass" type="password" placeholder="Password">
+  <button class="btn" onclick="registerStudent()">Register</button>
+</section>
+
+<!-- LOGIN -->
+<section id="login" class="card hidden">
+  <h2>Student Login</h2>
+  <div id="loginError" style="color:red"></div>
+  <input id="loginUser" placeholder="Username">
+  <input id="loginPass" type="password" placeholder="Password">
+  <button class="btn" onclick="loginStudent()">Login</button>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="card hidden">
+  <h2 id="dashName"></h2>
+  <h3>Google Drive Lessons</h3>
+  <div id="videoList"></div>
+  <button class="btn" onclick="showPage('payment')">Go to Payment</button>
+  <button class="btn" style="background:red" onclick="logoutStudent()">Logout</button>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment" class="card hidden">
+  <h2>Payment</h2>
+  <p>Scan UPI QR and upload screenshot, then send to WhatsApp.</p>
+  <img id="upiQR" src="" alt="UPI QR" style="max-width:200px; background:white; border-radius:8px;" />
+  <input type="file" accept="image/*" onchange="previewScreenshot(event)">
+  <img id="screenPrev" style="max-width:200px; margin-top:10px; display:none;">
+  <button class="btn" onclick="sendWhatsApp()">Send to WhatsApp</button>
+</section>
+
+<!-- ADMIN -->
+<section id="admin" class="card hidden">
+  <h2>Admin Panel</h2>
+  <div id="adminLoginBox">
+    <input id="admUser" placeholder="Admin Username">
+    <input id="admPass" type="password" placeholder="Admin Password">
+    <button class="btn" onclick="adminLogin()">Login</button>
+  </div>
+
+  <div id="adminPanel" class="hidden">
+    <h3>Upload UPI QR</h3>
+    <input type="file" accept="image/*" onchange="uploadUPI(event)">
+
+    <h3>Add Google Drive Lesson Link</h3>
+    <button class="btn" onclick="addVideo()">Add Video</button>
+
+    <h3>Set WhatsApp Number</h3>
+    <button class="btn" onclick="setWhatsApp()">Set Number</button>
+
+    <button class="btn" style="background:red" onclick="adminLogout()">Logout</button>
+  </div>
+</section>
+
+<script>
+// PAGE SWITCHER
+function showPage(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+// REGISTER
+function registerStudent(){
+  let n = regName.value,
+      g = regGrade.value,
+      p = regPhone.value,
+      u = regUser.value,
+      ps = regPass.value;
+
+  if(!n || !g || !p || !u || !ps){ regError.innerText = "Fill all fields"; return; }
+
+  let students = JSON.parse(localStorage.getItem('students') || '[]');
+  if(students.find(s=>s.username===u)){ regError.innerText = "Username already taken"; return; }
+
+  students.push({name:n, grade:g, phone:p, username:u, pass:ps});
+  localStorage.setItem('students', JSON.stringify(students));
+
+  alert("Registration successful!");
+  showPage('login');
+}
+
+// LOGIN
+let currentStudent = null;
+function loginStudent(){
+  let u = loginUser.value,
+      p = loginPass.value;
+  let students = JSON.parse(localStorage.getItem('students') || '[]');
+  let found = students.find(s=>s.username===u && s.pass===p);
+  if(!found){ loginError.innerText = "Invalid credentials"; return; }
+
+  currentStudent = found;
+  dashName.innerText = "Welcome " + found.name;
+
+  loadVideos();
+  showPage('dashboard');
+}
+function logoutStudent(){ currentStudent=null; showPage('home'); }
+
+// ADMIN
+function adminLogin(){
+  if(admUser.value==='admin' && admPass.value==='password123'){
+    document.getElementById('adminLoginBox').classList.add('hidden');
+    document.getElementById('adminPanel').classList.remove('hidden');
+  } else alert('Wrong admin login');
+}
+function adminLogout(){
+  document.getElementById('adminLoginBox').classList.remove('hidden');
+  document.getElementById('adminPanel').classList.add('hidden');
+}
+
+// ADMIN – UPI QR
+function uploadUPI(e){
+  let f = e.target.files[0];
+  let r = new FileReader();
+  r.onload = ()=>{
+    localStorage.setItem('upiQR', r.result);
+    document.getElementById('upiQR').src = r.result;
+  };
+  r.readAsDataURL(f);
+}
+
+// ADMIN – Videos
+function addVideo(){
+  let link = prompt("Paste Google Drive Link");
+  if(!link) return;
+  let v = JSON.parse(localStorage.getItem('videos')||'[]');
+  v.push(link);
+  localStorage.setItem('videos', JSON.stringify(v));
+  loadVideos();
+}
+function loadVideos(){
+  let v = JSON.parse(localStorage.getItem('videos')||'[]');
+  videoList.innerHTML = v.map((x,i)=>`<div class='card'><a href='${x}' target='_blank'>Lesson ${i+1}</a></div>`).join('');
+}
+
+// ADMIN – WhatsApp Number
+function setWhatsApp(){
+  let num = prompt("Enter WhatsApp Number (+91...)", localStorage.getItem('whatsapp')||'+91');
+  if(num) localStorage.setItem('whatsapp', num);
+}
+
+// PAYMENT SCREENSHOT
+function previewScreenshot(e){
+  let f = e.target.files[0];
+  let r = new FileReader();
+  r.onload = ()=>{
+    screenPrev.src = r.result;
+    screenPrev.style.display = 'block';
+  };
+  r.readAsDataURL(f);
+}
+
+// WHATSAPP SEND
+function sendWhatsApp(){
+  let num = (localStorage.getItem('whatsapp')||'+911234567890').replace(/[^0-9]/g,'');
+  let msg = encodeURIComponent("Hello, payment completed. Screenshot attached.");
+  window.open(`https://wa.me/${num}?text=${msg}`);
+}
+
+// LOAD UPI QR ON START
+let q = localStorage.getItem('upiQR');
+if(q) document.getElementById('upiQR').src = q;
+
+</script>
+</body>
+</html>
