@@ -168,7 +168,7 @@
 /* ----------------- Defaults & Init ----------------- */
 const DEFAULT_BILLING_DAYS = 30;
 (function initDefaults(){
-  if(!localStorage.getItem('adminCreds')) localStorage.setItem('adminCreds', JSON.stringify({username:'admin',password:'password123'}));
+  if(!localStorage.getItem('adminCreds')) localStorage.setItem('adminCreds', JSON.stringify({username:'admin',password:'live123'}));
   if(!localStorage.getItem('billingDays')) localStorage.setItem('billingDays', String(DEFAULT_BILLING_DAYS));
   if(!localStorage.getItem('classVideos')) localStorage.setItem('classVideos', JSON.stringify({}));
   if(!localStorage.getItem('assignments')) localStorage.setItem('assignments', JSON.stringify({}));
